@@ -1,0 +1,88 @@
+<!-- <form #AddForm="ngForm">
+    <label>:שם הגינה</label><br>
+    <input type="text" [(ngModel)]="newPark.name" name="Nname" required #NameId="ngModel"><br>
+        @if(NameId.errors){
+        @if(NameId.errors['required']){
+        <span>זהו שדה חובה</span>
+        }
+        }
+        <label>:תיאור בקצרה</label><br>
+        <input type="text" [(ngModel)]="newPark.desc" name="Ndesc" required #DescId="ngModel"><br>
+        @if(DescId.errors){
+        @if(DescId.errors['required']){
+        <span>זהו שדה חובה</span>
+        }
+        }
+        <label>:כתובת</label><br>
+        <input type="text" [(ngModel)]="newPark.address" name="Naddress" required #AddressId="ngModel"><br>
+        @if(AddressId.errors){
+        @if(AddressId.errors['required']){
+        <span>זהו שדה חובה</span>
+        }
+        }
+        <label>:שתף תמונה</label><br>
+        <input type="file" name="Nfile" (change)="onFileSelected($event)" required><br>
+לדאוג להוסיף שדה של עיר לפי רשימת הערים הקיימות, 
+ ואם אין עיר - לתת לו להוסיף עיר חדשה -->
+
+ <!-- המשתמש יהיה לפי localStorage
+
+<button (click)="addPark()" [disabled]="AddForm.invalid">הוספת הגינה</button>
+</form>
+
+ -->
+ <div class="form-container">
+    <h2 class="form-title">🌱 הוספת גינה חדשה לגלריה 🌱</h2>
+    <form #AddForm="ngForm">
+        
+        <div class="form-group">
+            <label>:שם הגינה</label>
+            <input type="text" [(ngModel)]="newPark.name" name="Nname" required #NameId="ngModel" placeholder="הקלד שם לגינה">
+            @if(NameId.errors && (NameId.dirty || NameId.touched)){
+                @if(NameId.errors['required']){
+                    <span class="error-message">זהו שדה חובה</span>
+                }
+            }
+        </div>
+
+        <div class="form-group">
+            <label>:תיאור בקצרה</label>
+            <input type="text" [(ngModel)]="newPark.desc" name="Ndesc" required #DescId="ngModel" placeholder="תאר את הגינה במשפט קצר">
+            @if(DescId.errors && (DescId.dirty || DescId.touched)){
+                @if(DescId.errors['required']){
+                    <span class="error-message">זהו שדה חובה</span>
+                }
+            }
+        </div>
+        
+        <div class="form-group">
+            <label>:כתובת</label>
+            <input type="text" [(ngModel)]="newPark.address" name="Naddress" required #AddressId="ngModel" placeholder="רחוב ומספר בית">
+            @if(AddressId.errors && (AddressId.dirty || AddressId.touched)){
+                @if(AddressId.errors['required']){
+                    <span class="error-message">זהו שדה חובה</span>
+                }
+            }
+        </div>
+        
+        <div class="form-group">
+            <label>:בחר עיר</label>
+            <select name="Ncity" required>
+                <option value="" disabled selected>בחר עיר</option>
+                <option value="1">ירושלים</option>
+                <option value="2">בני ברק</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>:שתף תמונה</label>
+            <input type="file" name="Nfile" (change)="onFileSelected($event)" required>
+        </div>
+
+        <p class="form-note">המשתמש שמעלה את הגינה נקבע אוטומטית לפי ההתחברות.</p>
+
+        
+
+        <button (click)="addPark()" [disabled]="AddForm.invalid">הוספת הגינה</button>
+    </form>
+</div>

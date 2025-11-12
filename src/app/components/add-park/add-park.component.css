@@ -1,0 +1,88 @@
+/* --- כללי עיצוב הטופס (AddForm) --- */
+
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.form-title {
+    text-align: center;
+    color: #1a5e3a; /* ירוק כהה */
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #d4edda;
+}
+
+/* עיצוב התוויות */
+label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    color: #444;
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+/* עיצוב שדות הקלט */
+input[type="text"], input[type="file"], select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 5px; /* מרווח קטן מעל הודעת השגיאה */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* מבטיח ש-padding לא יגדיל את רוחב השדה */
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="file"]:focus, select:focus {
+    border-color: #4CAF50; /* הדגשה ירוקה בפוקוס */
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* הודעות שגיאה */
+.error-message {
+    color: #d9534f; /* אדום */
+    font-size: 0.85em;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* עיצוב הכפתור */
+button {
+    background-color: #4CAF50; /* ירוק בהיר */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 25px;
+    width: 100%; /* ממלא את כל רוחב הטופס */
+    transition: background-color 0.3s, opacity 0.3s;
+    font-weight: bold;
+}
+
+button:hover:not([disabled]) {
+    background-color: #45a049; /* ירוק כהה יותר בריחוף */
+}
+
+button[disabled] {
+    background-color: #a0d3a2; /* ירוק בהיר יותר כשהוא לא פעיל */
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* עיצוב מיוחד לשדה קובץ */
+input[type="file"] {
+    padding: 8px 10px;
+}

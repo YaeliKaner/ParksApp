@@ -1,0 +1,5 @@
+# קבצים שלא נעלה ל-Git
+node_modules/
+dist/
+.angular/
+*.log

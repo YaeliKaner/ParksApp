@@ -1,0 +1,54 @@
+<!-- @if (parksList && parksList.length > 0) {
+@for(park of parksList; track $index)
+{
+    <h1>name: {{park.name}}</h1>
+   
+    <h2>address: {{park.address}}</h2>
+    <h2>upload date: {{park.uploadDate}}</h2>
+    <h2>user: {{park.userDTO.name}}</h2>
+    <h2>city: {{park.city.name}}</h2>
+    <img [src]="'data:picture/jpeg;base64,' + park.imageBase64" alt="תמונת הפארק">
+
+    <br>
+}
+}
+
+
+ -->
+ <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת הפארקים - אתר שיתופי</title>
+    <link rel="stylesheet" href="F:\שנה ב\פרויקט בסד\project bsd\parksApp\src\app\components\parks-list\parks-list.component.css">
+</head>
+<body>
+
+    <h1 class="page-title">🌳 גלריית הפארקים השיתופית 🌳</h1>
+
+    <div class="parks-list">
+        @if (parksList && parksList.length > 0) {
+            @for(park of parksList; track $index) {
+                <div class="park-card">
+                    <img [src]="'data:picture/jpeg;base64,' + park.imageBase64" alt="תמונת הפארק: {{park.name}}" class="park-image">
+
+                    <div class="park-details">
+                        <h2 class="park-name">{{park.name}}</h2>
+                        <p class="park-info"><strong>עיר:</strong> {{park.city.name}}</p>
+                        <p class="park-info"><strong>כתובת:</strong> {{park.address}}</p>
+                        
+                        <div class="park-footer">
+                            <span class="park-info park-user">הועלה ע"י: {{park.userDTO.name}}</span>
+                            <span class="park-info park-upload-date">תאריך: {{park.uploadDate}}</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        } @else {
+            <p class="no-parks-message">לא נמצאו פארקים להצגה. אולי תרצה להוסיף אחד?</p>
+        }
+    </div>
+
+</body>
+</html>
